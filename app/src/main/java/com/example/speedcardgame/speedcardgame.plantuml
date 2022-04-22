@@ -1,0 +1,297 @@
+@startuml
+
+title __SPEEDCARDGAME's Class Diagram__\n
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.BroadcastBattery {
+        + onReceive()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.Cards {
+        - card : String
+        - cardId : int
+        - cardNum : int
+        - number : String
+        - print : String
+        + Cards()
+        + getCard()
+        + getCardId()
+        + getCardNum()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.ChampActivity {
+        - btnPlay : Button
+        + onClick()
+        # onCreate()
+        - initViews()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.DBHelper {
+        {static} - COLUMN_BEST_SCORE : String
+        {static} - COLUMN_ID : String
+        {static} - COLUMN_PASSWORD : String
+        {static} - COLUMN_USERNAME : String
+        {static} - COLUMN_XP : String
+        {static} - DATABAESVERSION : int
+        {static} - DATABASENAME : String
+        {static} - TABLE_NAME : String
+        - database : SQLiteDatabase
+        + DBHelper()
+        + TopScorers()
+        + insertTblUser()
+        + onCreate()
+        + onUpgrade()
+        + selectByName()
+        + setScore()
+        + setXP()
+        + validationPass()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.GameActivity {
+        ~ botInAnim : Animation
+        ~ botOutAnim : Animation
+        - botDeskCards : ImageButton
+        - botLook : int
+        - cardDrop : int
+        - cardPlayed : int
+        - deskClose1 : ImageButton
+        - deskClose2 : ImageButton
+        - deskOpen1 : ImageButton
+        - deskOpen2 : ImageButton
+        - flipCard : int
+        {static} - miliseconds : int
+        - myDeskCards : ImageButton
+        - myHandler : Handler
+        - oneCard1 : ImageButton
+        - oneCard2 : ImageButton
+        - oneCard3 : ImageButton
+        - oneCard4 : ImageButton
+        - oneCard5 : ImageButton
+        - openCards1 : ArrayList<ImageView>
+        - openCards2 : ArrayList<ImageView>
+        - openNull1 : int
+        - openNull2 : int
+        - p1OpenCards : Cards[]
+        - p2OpenCards : Cards[]
+        {static} - running : boolean
+        - soundPool : SoundPool
+        {static} - startAnimDuration : int
+        - started : boolean
+        - takingCard : int
+        - tvTime : TextView
+        - twoCard1 : ImageButton
+        - twoCard2 : ImageButton
+        - twoCard3 : ImageButton
+        - twoCard4 : ImageButton
+        - twoCard5 : ImageButton
+        + onClick()
+        + onDrag()
+        + onTouch()
+        # onCreate()
+        - getSP()
+        - initViews()
+        - runTimer()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.GameStrategy {
+        + centerCards : Queue<Cards>
+        + pOneCards : Queue<Cards>
+        + pTwoCards : Queue<Cards>
+        {static} - allCards : int
+        - cards : Queue<Cards>
+        - cardsArr : Cards[]
+        - loss : boolean
+        {static} - player1Cards : int
+        {static} - player2Cards : int
+        - win : boolean
+        + GameStrategy()
+        + allPlayable()
+        + getCenterCards()
+        + getpOneCards()
+        + getpTwoCards()
+        + isLost()
+        + isWon()
+        + playable()
+        + setCenterCards()
+        + setLost()
+        + setWon()
+        + setpOneCards()
+        + setpTwoCards()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.Levels {
+        - level : int
+        - levelXP : int
+        - totalXP : int
+        - xpInLevel : int
+        + Levels()
+        + getLevel()
+        + getLevelXP()
+        + getXpInLevel()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.LoginActivity {
+        + isNewGame : boolean
+        ~ validPassWord : boolean
+        ~ validUsername : boolean
+        - btnLogin : Button
+        - btnSignUp : Button
+        - etPassWord : EditText
+        - etUserName : EditText
+        - sp : SharedPreferences
+        - tvDetails : TextView
+        + onClick()
+        # onCreate()
+        - checkUserName()
+        - initContactData()
+        - initViews()
+        - prepareSendData()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.MainActivity {
+        - btnAudio : LottieAnimationView
+        - btnChamp : ImageButton
+        - btnPlay : LottieAnimationView
+        - btnRules : Button
+        - btnScore : ImageButton
+        - isPlay : boolean
+        - pLevel : TextView
+        - progressBar : ProgressBar
+        - serviceIntent : Intent
+        - strLink : String
+        - tvUsername : TextView
+        + onClick()
+        # onCreate()
+        - buttonAudioClick()
+        - getSP()
+        - getXP()
+        - initViews()
+        - playAudio()
+        - stopAudio()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.PlayActivity {
+        {static} + beginner : int
+        {static} + easy : int
+        {static} + hard : int
+        {static} + reflex : int
+        - btnBack : LottieAnimationView
+        - btnBeginner : Button
+        - btnEasy : Button
+        - btnHard : Button
+        - btnReflex : Button
+        + onClick()
+        # onCreate()
+        - initViews()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.PlayService {
+        ~ mediaPlayer : MediaPlayer
+        + PlayService()
+        + onBind()
+        + onBufferingUpdate()
+        + onCompletion()
+        + onCreate()
+        + onDestroy()
+        + onError()
+        + onInfo()
+        + onPrepared()
+        + onSeekComplete()
+        + onStartCommand()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.ScoresActivity {
+        - chart1 : String
+        - chart2 : String
+        - chart3 : String
+        - chart4 : String
+        - id : int
+        - tvChart1 : TextView
+        - tvChart2 : TextView
+        - tvChart3 : TextView
+        - tvChart4 : TextView
+        # onCreate()
+        - initViews()
+    }
+  }
+  
+
+  namespace com.example.speedcardgame {
+    class com.example.speedcardgame.SplashScreenActivity {
+        + onCreate()
+    }
+  }
+  
+
+  com.example.speedcardgame.BroadcastBattery -up-|> android.content.BroadcastReceiver
+  com.example.speedcardgame.ChampActivity .up.|> android.view.View.OnClickListener
+  com.example.speedcardgame.ChampActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.speedcardgame.DBHelper -up-|> android.database.sqlite.SQLiteOpenHelper
+  com.example.speedcardgame.GameActivity .up.|> android.view.View.OnClickListener
+  com.example.speedcardgame.GameActivity .up.|> android.view.View.OnDragListener
+  com.example.speedcardgame.GameActivity .up.|> android.view.View.OnTouchListener
+  com.example.speedcardgame.GameActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.speedcardgame.GameActivity o-- com.example.speedcardgame.GameStrategy : gameStrategy
+  com.example.speedcardgame.GameActivity o-- com.example.speedcardgame.Cards : topDesk1
+  com.example.speedcardgame.GameActivity o-- com.example.speedcardgame.Cards : topDesk2
+  com.example.speedcardgame.LoginActivity .up.|> android.view.View.OnClickListener
+  com.example.speedcardgame.LoginActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.speedcardgame.MainActivity .up.|> android.view.View.OnClickListener
+  com.example.speedcardgame.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.speedcardgame.MainActivity o-- com.example.speedcardgame.Levels : levels
+  com.example.speedcardgame.PlayActivity .up.|> android.view.View.OnClickListener
+  com.example.speedcardgame.PlayActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.speedcardgame.PlayService .up.|> android.media.MediaPlayer.OnBufferingUpdateListener
+  com.example.speedcardgame.PlayService .up.|> android.media.MediaPlayer.OnCompletionListener
+  com.example.speedcardgame.PlayService .up.|> android.media.MediaPlayer.OnErrorListener
+  com.example.speedcardgame.PlayService .up.|> android.media.MediaPlayer.OnInfoListener
+  com.example.speedcardgame.PlayService .up.|> android.media.MediaPlayer.OnPreparedListener
+  com.example.speedcardgame.PlayService .up.|> android.media.MediaPlayer.OnSeekCompleteListener
+  com.example.speedcardgame.PlayService -up-|> android.app.Service
+  com.example.speedcardgame.ScoresActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.speedcardgame.ScoresActivity o-- com.example.speedcardgame.DBHelper : dataManager
+  com.example.speedcardgame.ScoresActivity o-- com.example.speedcardgame.Levels : levels
+  com.example.speedcardgame.SplashScreenActivity -up-|> androidx.appcompat.app.AppCompatActivity
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
